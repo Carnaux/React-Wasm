@@ -9,7 +9,7 @@ var
 	fs = require('fs'),
 	child;
 
-var EMSCRIPTEN_ROOT = "/Users/danielfernandes/Desktop/Lab/emsdk/upstream/emscripten/";
+var EMSCRIPTEN_ROOT = "PATH/TO/EMSCRIPTEN/UPSTREAM";
 
 var EMCC = EMSCRIPTEN_ROOT ? path.resolve(EMSCRIPTEN_ROOT, 'emcc') : 'emcc';
 var EMPP = EMSCRIPTEN_ROOT ? path.resolve(EMSCRIPTEN_ROOT, 'em++') : 'em++';
@@ -95,9 +95,6 @@ function clean_builds() {
 	catch(e) { return console.log(e); }
 }
 
-
-
-
 var compile_combine = format(EMCC + ' ' + INCLUDES + ' '
 	+ MAIN_SOURCES
 	+ FLAGS + ' -s WASM=0' + ' '  + DEBUG_FLAGS + DEFINES + ' -o {OUTPUT_PATH}{BUILD_FILE} ',
@@ -155,5 +152,4 @@ function addJob(job) {
 addJob(clean_builds);
 addJob(compile_wasm);
 addJob(compile_combine_min);
-// addJob(test_wasm);
 runJob();

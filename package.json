@@ -1,9 +1,9 @@
 {
-    "name": "visualodometry",
+    "name": "react-wasm",
     "version": "0.1.0",
     "private": true,
     "scripts": {
-      "em_source": "source /Users/danielfernandes/Desktop/Lab/emsdk/emsdk_env.sh",
+      "em_source": "source ./PATH/TO/EMSCRIPTEN/UPSTREAM /emsdk_env.sh",
       "build": "node makem.js"
     },
     "browserslist": {
