@@ -8,11 +8,11 @@ Make sure you have Emscripten installed.
 # Folders
 
 - build
-    Holds the build from Emscripten.
+    - Holds the build from Emscripten.
 - source
-    Holds the C++(Or whatever other language) source files.
+    - Holds the C++(Or whatever other language) source files.
 - web
-    Holds a create-react-app application that loads the built WASM files.
+    - Holds a create-react-app application that loads the built WASM files.
 
 
 # Configuration
