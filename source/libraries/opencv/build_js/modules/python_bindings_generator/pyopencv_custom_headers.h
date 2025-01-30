@@ -1,0 +1,10 @@
+//user-defined headers
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/core/misc/python/pyopencv_async.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/core/misc/python/pyopencv_core.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/core/misc/python/pyopencv_cuda.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/core/misc/python/pyopencv_umat.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/flann/misc/python/pyopencv_flann.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/dnn/misc/python/pyopencv_dnn.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/features2d/misc/python/pyopencv_features2d.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/objdetect/misc/python/pyopencv_objdetect.hpp"
+#include "/Users/danielfernandes/Desktop/Lab/VisualOdometry/Wasm-Visual-Odometry/source/libraries/opencv/modules/video/misc/python/pyopencv_video.hpp"

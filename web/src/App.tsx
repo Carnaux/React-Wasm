@@ -1,42 +1,55 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
 
-import * as WASM from "./wasm/em_testing.min";
+import * as WASM from "./wasm/test_lib";
+import { VideoBackground } from "./components/VideoBackground";
 
 function App() {
-  const [wasmModule, setWasmModule] = React.useState<any>(null);
-  
+  const [permissionAsked, setPermissionAsked] = useState(false);
+  const [wasmModule, setWasmModule] = useState<any>(null);
+
   const loadWasmModule = async () => {
-  
     console.log("Loading WASM module...");
     const module = await WASM.default();
     console.log("WASM module loaded", module);
     setWasmModule(module);
+
+    // var uint8Arr = new Uint8Array();
+    // const numBytes = uint8Arr.length * uint8Arr.BYTES_PER_ELEMENT;
+    // const dataPtr = module._malloc(numBytes);
+    // const dataOnHeap = new Uint8Array(module.HEAPU8.buffer, dataPtr, numBytes);
+    // dataOnHeap.set(uint8Arr);
   };
 
   useEffect(() => {
-    if(!wasmModule){
+    if (!wasmModule) {
       loadWasmModule();
     }
-  },[wasmModule]);
+  }, [wasmModule]);
+
+  const requestPermission = async () => {
+    try {
+      await navigator.mediaDevices
+        .getUserMedia({
+          video: true,
+          audio: false,
+        })
+        .then((stream) => {
+          setPermissionAsked(true);
+        });
+    } catch (err) {
+      console.error(`An error occurred: ${err}`);
+    }
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!permissionAsked && <button onClick={requestPermission}>Start</button>}
+
+      <VideoBackground
+        wasmModule={wasmModule}
+        permissionAsked={permissionAsked}
+      />
     </div>
   );
 }
