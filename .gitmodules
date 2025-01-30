@@ -1,0 +1,3 @@
+[submodule "source/libraries/opencv"]
+	path = source/libraries/opencv
+	url = git@github.com:opencv/opencv.git
